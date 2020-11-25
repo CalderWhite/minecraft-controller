@@ -17,7 +17,7 @@
 					<button onclick="document.getElementById('loading').style.display='inline';$.get('/on', function(data){location.reload()})">On </button>
 				</td>
 				<td>
-					<button onclick="document.getElementById('loading').style.display='inline';$.get('/off', function(data){location.reload()})">Off </button>
+					<button onclick="if(confirm('Are you sure?')){document.getElementById('loading').style.display='inline';$.get('/off', function(data){location.reload()})}">Off </button>
 				</td>
 			</tr>
 		</table>
