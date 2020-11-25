@@ -11,12 +11,12 @@ def status():
 
 @app.route('/on')
 def turn_on():
-    res = subprocess.run("gcloud compute instances start minecraft-with-friends".split(" "))
+    res = subprocess.run("gcloud compute instances start minecraft-with-friends --zone=us-central1-a".split(" "))
     return 'done'
 
 @app.route('/off')
 def turn_off():
-    subprocess.Popen("gcloud compute instances stop minecraft-with-friends".split(" "))
+    subprocess.Popen("gcloud compute instances stop minecraft-with-friends --zone=us-central1-a".split(" "))
     return 'done'
 
 @app.route('/')
@@ -24,4 +24,4 @@ def root():
     return app.send_static_file('index.html')
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port="8080")
+    app.run(host="0.0.0.0", port="80")
